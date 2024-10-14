@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "person": {
+      "name": "nickollas",
+      "email": "nickollas@nickollas",
+      "password": "123"
+    }
+  },
+  { "person": { "name": "ana", "email": "ana@ana", "password": "123" } }
+]

@@ -1,6 +1,6 @@
 <?php
 
-include_once "controller.php";
+
 
 $page = $_GET['page'] ?? 'login';
 $controller = new Controller;
