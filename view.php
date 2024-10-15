@@ -2,8 +2,10 @@
 
 class View
 {
-    public static function render_view($template)
+    public static function render_view($template, $dados = [])
     {
-        return file_get_contents(VIEW_FOLDER . $template);
+        extract($dados);
+
+        include VIEW_FOLDER . $template;
     }
 }

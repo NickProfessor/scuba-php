@@ -12,21 +12,39 @@
     <a href="./?page=login"><h1>Scuba<span>PHP</span></h1></a>
     <form action="/scuba-php/?page=register&from=register" method="POST">
         <p>Cadastre Um Novo Usuário</p>
+        <?php if(!empty($mensagemSucesso)):?>
         <div class="mensagem-sucesso">
-            <p>Mensagem de Sucesso</p>
+            <p><?= $mensagemSucesso?></p>
         </div>
+        <?php endif;?>
         <label for="nome">Nome</label>
         <input type="text" name="person[name]" required>
-        <span class="mensagem-erro">Mensagem de Erro</span>
+       <?php if (!empty($mensagemErro) && $_GET['erro']== "email-ja-cadastrado"): ?>
+    <span class="mensagem-erro">
+        <?= $mensagemErro; ?>
+    </span>
+<?php endif; ?>
         <label for="email">E-mail</label>
         <input type="email" name="person[email]" required>
-        <span class="mensagem-erro">Mensagem de Erro</span>
+       <?php if (!empty($mensagemErro) && $_GET['erro']== "email-ja-cadastrado"): ?>
+    <span class="mensagem-erro">
+        <?= $mensagemErro; ?>
+    </span>
+<?php endif; ?>
         <label for="senha">Senha</label>
         <input type="password" name="person[password]" required>
-        <span class="mensagem-erro">Mensagem de Erro</span>
+       <?php if (!empty($mensagemErro) && ($_GET['erro'] == "senhas-nao-conferem" || $_GET['erro'] == "senha-invalida")): ?>
+    <span class="mensagem-erro">
+        <?= $mensagemErro; ?>
+    </span>
+<?php endif; ?>
         <label for="repita-senha">Repita Senha</label>
         <input type="password" name="person[password-confirm]" required>
-        <span class="mensagem-erro">Mensagem de Erro</span>
+       <?php if (!empty($mensagemErro) && ($_GET['erro'] == "senhas-nao-conferem" || $_GET['erro'] == "senha-invalida")): ?>
+    <span class="mensagem-erro">
+        <?= $mensagemErro; ?>
+    </span>
+<?php endif; ?>
         <input type="submit" value="Salvar">
 
     </form>

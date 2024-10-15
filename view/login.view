@@ -11,15 +11,29 @@
 <body>
     <h1>Scuba<span>PHP</span></h1>
     <form action="/?page=login&from=login" method="POST">
+       <?php if(!empty($mensagemSucesso)):?>
         <div class="mensagem-sucesso">
-            <p>Mensagem de Sucesso</p>
+            <p><?= $mensagemSucesso?></p>
         </div>
+        <?php endif;?>
         <label for="login">Email</label>
         <input type="text" name="person[email]" required>
-        <span class="mensagem-erro">Mensagem de Erro</span>
+
+        <?php if (!empty($mensagemErro)): ?>
+            <span class="erro">
+                <?= $mensagemErro; ?>
+            </span>
+        <?php endif; ?>
+
         <label for="password">Senha</label>
         <input type="password" name="person[password]" required>
-        <span class="mensagem-erro">Mensagem de Erro</span>
+
+        <?php if (!empty($mensagemErro)): ?>
+            <span class="erro">
+                <?= $mensagemErro; ?>
+            </span>
+        <?php endif; ?>
+
         <button>Entrar</button>
         <a href="./?page=register">Cadastrar Usuário</a>
         <a href="./?page=forget-password">Esqueci Minha Senha</a>
